@@ -7,10 +7,21 @@
     <title>CS290 Project 5</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/common.css">
-    <script src="js/jquery.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
     <script src="js/raphael.js"></script>
     <script src="js/jquery.usmap.js"></script>
-    <script src="js/tools.js"></script>
+    <script>
+  
+$(document).ready(function() {
+$('#map').usmap({
+  // The click action
+  click: function(event, data) {
+    $('#clicked-state')
+      .text('You clicked: '+data.name)
+      .parent().effect('highlight', {color: '#C7F464'}, 2000);
+  }
+});
+	</script>
 </head>
 
 <body class="w">
