@@ -1,3 +1,4 @@
+$(document).ready(function() {
 $('#map').usmap({
   // The click action
   click: function(event, data) {
