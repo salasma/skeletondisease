@@ -13,15 +13,30 @@
     <script src="color.jquery.js"></script>
     <script>
   
-$(document).ready(function() {
-$('#map').usmap({
-  // The click action
-  click: function(event, data) {
-    $('#clicked-state')
-      .text('You clicked: '+data.name)
-      .parent().effect('highlight', {color: '#C7F464'}, 2000);
-  }
-});
+	$(document).ready(function() {
+	  $('#map').usmap({
+	    'stateSpecificStyles': {
+	      'AK' : {fill: '#f00'}
+	    },
+	    'stateSpecificHoverStyles': {
+	      'HI' : {fill: '#ff0'}
+	    },
+	    
+	    'mouseoverState': {
+	      'HI' : function(event, data) {
+	        //return false;
+	      }
+	    },
+	    
+	    
+	    'click' : function(event, data) {
+	      $('#alert')
+	        .text('Click '+data.name+' on map 1')
+	        .stop()
+	        .css('backgroundColor', '#ff0')
+	        .animate({backgroundColor: '#ddd'}, 1000);
+	    }
+	  });
 	</script>
 </head>
 
