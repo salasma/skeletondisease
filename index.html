@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS290 Project 5</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <script src="js/tools.js"></script>
+    <script>
+        window.onload = function(){
+			var imgList = document.getElementById("imgList");
+            var imgArr = imgList.getElementsByTagName("img");
+            console.log(imgArr);
+			imgList.style.width = 500*imgArr.length+"px";
+			var navDiv = document.getElementById("navDiv");
+			var outer = document.getElementById("outer");
+			navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth)/2 + "px";
+			var index = 0;
+			var allA = navDiv.getElementsByTagName("a");
+			allA[index].style.backgroundColor = "black";
+			
+			for(var i=0; i<allA.length ; i++){
+					
+				allA[i].num = i;	
+				allA[i].onclick = function(){
+                    clearInterval(timer);
+                    index = this.num;
+                    setA();
+                    move(imgList , "left" , -500*index , 20 , function(){
+                        autoChange();
+                    });		
+			    };
+		    }
+		    autoChange();
+		
+		    function setA(){
+				if(index >= imgArr.length - 1){
+					index = 0;
+					imgList.style.left = 0;
+				}
+				for(var i=0 ; i<allA.length ; i++){
+					allA[i].style.backgroundColor = "";
+				}
+				
+				allA[index].style.backgroundColor = "black";
+			};
+				
+			var timer;
+			function autoChange(){
+					
+				timer = setInterval(function(){
+                    index++;
+                    index %= imgArr.length;
+                    move(imgList , "left" , -520*index , 20 , function(){
+                        setA();
+                    });		
+				},3000);		
+			}		
+		};
+
+    </script>
+</head>
+
+<body class="w">
+    <nav class="nav">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="courses.html">AWARDS</a></li>
+            <li><a href="schedule.html">SCHEDULE</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+    </nav>
+    <div class="main clearfix">   
+        <div class="box1">
+            <div class="info">
+                <h1>Information</h1>
+                <ul>
+                    <li>Location: Burlingame, CA</li>
+                    <li>1295 Rollins Rd. Burlingame, CA 94010-2416</li>
+                    <li>Founded in 1991</li>
+                </ul>
+            </div>
+        </div>
+        <div class="box2">
+            <div id="outer">
+                
+                <ul id="imgList">
+                    <li><img src="images/1.jpg" /></li>
+                    <li><img src="images/2.jpg" /></li>
+                    <li><img src="images/3.jpg" /></li>
+                    <li><img src="images/4.jpg" /></li>
+                    <li><img src="images/5.jpg" /></li>
+                    <li><img src="images/1.jpg" /></li>
+                </ul>
+                
+                <div id="navDiv">
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                    <a href="javascript:;"></a>
+                </div>
+            </div>
+	<div id="newDiv">
+		<a href="images/1.jpg" download="1.jpg">Download</a>
+		</div>
+            <div class="box3">
+                <h1>About Us</h1>
+                <ul>
+                    <li>· We are a dedicated team of mechanics specializing in Mercedes Benz.</li>
+                    <li>· Our restoration projects have gone on to win awards at shows such as Pebble Beach.</li>
+                    <li>· We have changed the dynamic of project cars by keeping our customers informed and involved in the process.</li>
+                </ul>
+                <h1>Skills</h1>
+                <div class="item">
+                    <span>Communication</span>
+                    <i class="bar"><em class="b1"></em></i>
+                </div>
+                <div class="item">
+                    <span>Hard work</span>
+                    <div class="bar"><em class="b2"></em></div>
+                </div>
+                <div class="item">
+                    <span>Penmanship :)</span>
+                    <div class="bar"><em class="b3"></em></div>
+                </div>
+                <div class="item">
+                    <span>Integrity</span>
+                    <div class="bar"><em class="b4"></em></div>
+                </div>
+            </div> 
+
+        </div>
+    </div>
+    
+    <footer class="footer">
+    </footer>
+    
+
+
+</body>
+
+</html>

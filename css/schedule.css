@@ -1,0 +1,46 @@
+.main {
+    padding: 0 150px;
+}
+.main h1 {
+    border-bottom: 2px solid #b1191a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+.main .title {
+    height: 30px;
+    position: relative;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    margin-left: 90px;
+}
+.main .title p {
+    position: absolute;
+    font-size: 30px;
+    font-weight: 700;
+    color: #b1191a;
+}
+.main .title .line {
+    position: absolute;
+    right: 90px;
+    top: 20px;
+    height: 3px;
+    width: 65%;
+    background-color: #666;
+}
+.main .sch {
+    padding-bottom: 15px;
+    margin-right: 90px;
+}
+.main .sch .text {
+    float: right;
+    text-align: right;
+    margin-right: 15px;
+    
+}
+.main .sch .line2 {
+    float: right;
+    height: 65px;
+    width: 8px;
+    background-color: #b1191a;
+    margin-right: 15px;
+}
